@@ -37,4 +37,19 @@ public class UserService {
 			
 			
 		}
+		
+		public User update(Long id, User obj) {
+			@SuppressWarnings("deprecation")
+			User entity = repository.getOne(id);
+			updateData(entity, obj);
+			return repository.save(entity);
+			
+		}
+
+		private void updateData(User entity, User obj) {
+			// TODO Auto-generated method stub
+			entity.setName(obj.getName());
+			entity.setEmail(obj.getEmail());
+			entity.setPhone(obj.getPhone());
+		}
 }
